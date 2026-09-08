@@ -1173,17 +1173,56 @@ Buraya öz mesajını yaz... ❤️"></textarea>
 
       `;
 
-      /* Elementləri yenidən tapırıq */
-      window.questionElement = document.getElementById("question");
+           window.questionElement = document.getElementById("question");
       window.answersElement = document.getElementById("answers");
       window.questionNumberElement = document.getElementById("questionNumber");
       window.scoreTextElement = document.getElementById("scoreText");
       window.progressFill = document.getElementById("progressFill");
 
-          loadQuestion();
+      loadQuestion();
+    }
+
+    /* Səhifə açılan kimi ilk sualı göstər */
+    loadQuestion();
+
+    /* Konfetti */
+    function launchConfetti(amount = 40) {
+
+      const colors = [
+        "#ff5fa2",
+        "#9b6cff",
+        "#ffd166",
+        "#48d597",
+        "#ffffff"
+      ];
+
+      for (let i = 0; i < amount; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.background =
+          colors[Math.floor(Math.random() * colors.length)];
+
+        piece.style.animationDuration =
+          (2 + Math.random() * 3) + "s";
+
+        piece.style.transform =
+          `rotate(${Math.random() * 360}deg)`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 5000);
+      }
+    }
 
   </script>
 
 </body>
 </html>
+
 
