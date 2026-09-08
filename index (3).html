@@ -1173,7 +1173,7 @@ Buraya öz mesajını yaz... ❤️"></textarea>
 
       `;
 
-      /* Elementləri yenidən tapırıq */
+            /* Elementləri yenidən tapırıq */
       window.questionElement = document.getElementById("question");
       window.answersElement = document.getElementById("answers");
       window.questionNumberElement = document.getElementById("questionNumber");
@@ -1181,6 +1181,31 @@ Buraya öz mesajını yaz... ❤️"></textarea>
       window.progressFill = document.getElementById("progressFill");
 
       loadQuestion();
+    }
+
+    function launchConfetti(amount = 30) {
+      for (let i = 0; i < amount; i++) {
+        const confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background =
+          ["#ff5fa2", "#9b6cff", "#ffd166", "#48d597"][Math.floor(Math.random() * 4)];
+        confetti.style.animationDuration =
+          (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 4000);
+      }
+    }
+
+    loadQuestion();
+
   </script>
+
 </body>
 </html>
+
